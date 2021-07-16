@@ -13,7 +13,7 @@ $(function () {
 } else { 
   $("header .drawer").click(function(){
   $('body').toggleClass('nav-open');
-  $('header header_nav').fadeToggle(200);
+  $('#global_nav').fadeToggle(200);
     });
   }
 }); 
