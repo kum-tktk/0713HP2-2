@@ -11,17 +11,17 @@ header {
   width: 25%;
   height: 65%;
   left: 50px;
-  position: absolute;
+  position: relative;
 }
 
 .header_list {
   position: absolute;
   top: 100px;
-  left: 80px;
+  left: 70px;
   z-index: 3;
 }
 
-.header_nav li a {
+.header_list li a {
   font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
@@ -30,6 +30,10 @@ header {
 
 .header_list li a:hover {
   opacity: 0.4;
+}
+
+header .drawer {
+  visibility: hidden;
 }
 
 .top_txt {
@@ -111,7 +115,7 @@ header {
      left: 40px;
  }
 
- .top {
+ header {
    height: 700px;
  }
 
@@ -130,7 +134,7 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-  .top {
+  header {
     height: 550px;
   }
   
@@ -179,9 +183,11 @@ header {
   margin: 20px auto;
   }
 
-  .top {
+  header {
     height: 330px;
+    position: relative;
   }
+
   
   .inner .intro_txt {
     margin-bottom: 50px;
@@ -205,75 +211,91 @@ header {
     padding-bottom: 10px;
   }
 
-  body.nav-open header .drawer {
+/*ハンバーガーメニュー*/
+  header .drawer {
     visibility: visible;
     width: 24px;
-    border-top: gray 4px solid;
-    position: absolute;
-    right: 8px;
-    margin: 12px;
+    margin: 20px;
+    border-top: solid 4px gray;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 15;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
-  body.nav-open header .drawer::after,
-  body.nav-open header .drawer::before{
+  header .drawer::after,
+  header .drawer::before{
     content: "";
     width: 24px;
     height: 4px;
     background: gray;
     display: block;
-    right: 0;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     position: absolute;
+    right: 0;
+    top: 0;
   }
 
-  body.nav-open header .drawer::after {
+  header .drawer::after {
     top: 5px;
   }
 
-  body.nav-open header .drawer::before {
+  header .drawer::before {
     top: 14px;
   }
+/*ハンバーガーメニューここまで*/
 
-
-  body.nav-open header header.list {
+/*ハンバーガーメニュー開いたメニュー*/
+  body.nav-open header .header_list {
     position: fixed;
     width: 100%;
     height: 100%;
     display: none;
     top: 0;
     left: 0;
-    z-index: 3;
-    background: #fff;
+    z-index: 10;
+    background: #d7866c;
    }
 
   body.nav-open header .header_list ul {
      display: block;
      text-align: center;
-     float: none;
-     top: 20%;
+     top: 15%;
+     position: relative;
    }
+
+   body.nav-open header .header_list ul li {
+     padding: 20px 0 0;
+     width: 35%;
+     margin: 0 auto;
+     border-bottom: solid 3px #fff;
+   }
+
+
 
    body.nav-open header .header_list ul li a {
-     font: 18px;
+     color: black;
+     font-size: 20px;
      line-height: 2;
+   }
+/*メニューここまで*/
+
+/*ハンバーガーメニュー開いた後の×*/
+ 　body.nav-open header .drawer {
+      border-top: 0;
+   }
+
+   body.nav-open header .drawer::after {
+     top: 9px;
+     transform: rotate(-45deg);
+   }
+
+   body.nav-open header .drawer::before {
+     top: 9px;
+     transform: rotate(45deg);
    }
 
 
-
-  body.nav-open header .drawer {
-    border-top: 0;
-  }
-
-  body.nav-open header .drawer::before {
-  top: 9px;
-  transform: rotate(-45deg);
-  }
-
-  body.nav-open header .drawer::after {
-    top: 9px;
-    transform: rotate(45deg);
-  } 
 }
